@@ -1,0 +1,13 @@
+{
+
+	"defaults" : {
+		"my nice json configuration" : {
+			"a property" : "some value",
+			"another property" : 42,
+			"complex property" : {
+				"finally" : "I'm the default'"
+			}
+		}
+	}
+
+}

@@ -1,0 +1,128 @@
+{
+	"bootstrap": {
+		"entries": [
+			{
+				"propertiesEntryType": "BUILDIN",
+				"properties": {
+					"dburl": "jdbc:mysql://localhost:3306/test1?autoReconnect=true&allowMultiQueries=true&cacheResultSetMetadata=true&emptyStringsConvertToZero=false&useInformationSchema=true&useServerPrepStmts=true&rewriteBatchedStatements=true&useSSL=false",
+					"dbuser": "test1",
+					"dbpassword": "",
+					"env": "localdev1",
+					"logdbpassword": "test2"
+				}
+			}
+		]
+	},
+	"defaults": {
+		"db": {
+			"logdb": {
+				"properties": {
+					"dburl": "jdbc:mysql://localhost:3306/test2?allowMultiQueries=true&cacheResultSetMetadata=true&emptyStringsConvertToZero=false&useInformationSchema=true&useServerPrepStmts=true&rewriteBatchedStatements=true&useSSL=false",
+					"dbuser": "test2",
+					"dbpasswordBootstrapPropertyName": "logdbpassword"
+				}
+			},
+			"core": {
+				"urlParams": {
+					"#socketTimeout": 5
+				},
+				"pool": {
+					"flex": {
+						"maxCachedPreparedStatements": 200,
+						"maxConnections": 30,
+						"retryTimeoutMilliseconds": 10000,
+						"initStatements": [
+							{
+								"onOpen": "create temporary table common_tmp ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
+								"onClose": "drop temporary table common_tmp"
+							},
+							{
+								"onOpen": "create temporary table common_tmp_1 ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
+								"onClose": "drop temporary table common_tmp_1",
+								"autoCommit": false
+							}
+						]
+					},
+					"bounded": {
+						"maxCachedPreparedStatements": 200,
+						"maxConnections": 30,
+						"retryTimeoutMilliseconds": 10000,
+						"initStatements": [
+							{
+								"onOpen": "create temporary table common_tmp ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
+								"onClose": "drop temporary table common_tmp"
+							},
+							{
+								"onOpen": "create temporary table common_tmp_1 ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
+								"onClose": "drop temporary table common_tmp_1"
+							}
+						]
+					}
+				}
+			}
+		},
+		"subsystems": {
+			"initConcurrency": 5,
+			"entries": {
+				"processMaintenance": {
+					"class": "arapp.susbsystems.ProcessMaintenance",
+					"deadAfterMilliseconds": 5000,
+					"removeDeadAfterMilliseconds": 30000,
+					"timers": {
+						"touch": {
+							"startAfterMilliseconds": 0,
+							"milliseconds": 1000
+						},
+						"maintenance": {
+							"startAfterMilliseconds": 1000,
+							"milliseconds": 1000
+						},
+						"lsof": {
+							"startAfterMilliseconds": 10000,
+							"milliseconds": 1000
+						}
+					}
+				},
+				"tickTock": {
+					"class": "tut.TickTockSubSystem",
+					"depends": [
+						"processMaintenance",
+						"a"
+					],
+					"timers": {
+						"tick": {
+							"milliseconds": 100
+						},
+						"tock": {
+							"startAfterMilliseconds": 400,
+							"milliseconds": 200
+						}
+					}
+				},
+				"a": {
+					"description" : "subsystem without a class, are just initialization synchronization points",
+					"depends": [
+						"b",
+						"d"
+					]
+				},
+				"b": {
+					"depends": [
+						"c"
+					]
+				},
+				"c": {
+					"depends": [
+						"d"
+					]
+				},
+				"d": {
+					"enabled": true,
+					"depends": [
+						"e"
+					]
+				}
+			}
+		}
+	}
+}

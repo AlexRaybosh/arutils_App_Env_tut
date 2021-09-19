@@ -1,0 +1,16 @@
+{
+
+	"include" : ["my_conf1"],
+	
+	"bootstrap" : {
+		"entries" : [		
+			{
+				"propertiesEntryType" : "BUILDIN",
+				"properties" : {
+					"env" : "localdev1"
+				}
+			}
+		]
+	}
+
+}

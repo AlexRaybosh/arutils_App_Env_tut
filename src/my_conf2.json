@@ -1,0 +1,14 @@
+{
+
+	"env" : {
+		"localdev1" : {
+			"my nice json configuration" : {
+				"complex property" : {
+					"finally" : "Im my_conf2"
+				}
+			}
+		}
+	}
+	
+
+}

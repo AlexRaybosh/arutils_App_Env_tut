@@ -1,0 +1,57 @@
+{
+
+	"defaults" : {
+		"subsystems" : {
+			"initConcurrency" : 1,
+			"entries" : {
+				"tickTock" : {
+					"class" : "tut.TickTockSubSystem",
+					"depends" : ["not going to be here"],
+					"timers" : {
+						"tick" : {
+							"milliseconds" : 500
+						},
+						"tock" : {
+							"milliseconds" : 400,
+							"startAfterMilliseconds" : 500
+						}
+					}
+				}
+			}
+		}
+	},
+	
+	"env" : {
+		"newEnv" : {
+		"subsystems" : {
+			"initConcurrency" : 1,
+			"entries" : {
+				"tickTock" : {
+					"class" : "tut.TickTockSubSystem",
+					"depends" : ["zzzz..."],
+					"description:" : "I'm nuking Tock timer here'",
+					"timers" : {
+						"tick" : {
+							"milliseconds" : 200
+						},
+						"tock" : null
+						}
+					}
+				}
+			}
+		}
+	},
+	
+	
+	"bootstrap" : {
+		"entries" : [
+			{
+				"propertiesEntryType" : "BUILDIN",
+				"properties" : {
+					"env" : "localdev1"
+				}
+			}
+		]
+	}
+
+}

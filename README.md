@@ -1,6 +1,9 @@
 # Application Environment tutorial
 self contained Eclipse project
 
+Based on [https://github.com/AlexRaybosh/arutils](https://github.com/AlexRaybosh/arutils)<br>
+
+
 Tutorial [Files](https://github.com/AlexRaybosh/arutils_App_Env_tut/tree/master/src/tut) <br/>
 
 

@@ -1,5 +1,5 @@
 # Application Environment tutorial
-self contained Eclipse project
+self contained Eclipse project (Java 11)
 
 Based on [https://github.com/AlexRaybosh/arutils](https://github.com/AlexRaybosh/arutils)<br>
 

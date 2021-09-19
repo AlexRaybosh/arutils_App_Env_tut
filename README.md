@@ -21,3 +21,5 @@ Bootstrap configurations (bootstrap*.json) are int [src root](https://github.com
 
 Only one bootstrap.json file is needed for a reall application. Best to split, and have all listed at once, e.g. [allincludes.json](https://github.com/AlexRaybosh/arutils_App_Env_tut/blob/master/src/allincludes.json)
  
+### Need to provide some kind of data definition schema for entries, not sure which one to pick: json schema, json typedef, json typeschema, etc.
+https://github.com/AlexRaybosh/arutils/tree/master/doc/schemas

@@ -19,5 +19,5 @@ TickTockSubSystem.java<br/>
 
 Bootstrap configurations (bootstrap*.json) are int [src root](https://github.com/AlexRaybosh/arutils_App_Env_tut/tree/master/src), so should get loaded as a class loader resource,
 
-Only one bootstrap.json file is needed for a reall application. Best to split, and have all listed at once, e.g. [allincludes.jason](https://github.com/AlexRaybosh/arutils_App_Env_tut/blob/master/src/allincludes.json)
+Only one bootstrap.json file is needed for a reall application. Best to split, and have all listed at once, e.g. [allincludes.json](https://github.com/AlexRaybosh/arutils_App_Env_tut/blob/master/src/allincludes.json)
  

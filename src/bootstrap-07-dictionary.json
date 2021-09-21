@@ -5,10 +5,10 @@
 				"word" : {
 					"description" : "these settings are totally overkill",
 					"maxWordLength" : 700,
-					"concurrency" : 20,
-					"queueSize" : 100000,
+					"concurrency" : 24,
+					"queueSize" : 1000000,
 					"bulkSize" : 512,
-					"cacheSize" : 1000000
+					"cacheSize" : 10000000					
 				}
 			}
 		},
@@ -27,9 +27,9 @@
 				},
 				"pool": {
 					"flex": {
-						"maxCachedPreparedStatements": 200,
+						"maxCachedPreparedStatements": 1000,
 						"maxConnections": 30,
-						"retryTimeoutMilliseconds": 60000,
+						"retryTimeoutMilliseconds": 30000,
 						"initStatements": [
 							{
 								"onOpen": "create temporary table common_tmp ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
@@ -43,9 +43,9 @@
 						]
 					},
 					"bounded": {
-						"maxCachedPreparedStatements": 200,
+						"maxCachedPreparedStatements": 1000,
 						"maxConnections": 30,
-						"retryTimeoutMilliseconds": 600000,
+						"retryTimeoutMilliseconds": 30000,
 						"initStatements": [
 							{
 								"onOpen": "create temporary table common_tmp ( i1 bigint null, i2 bigint null, i3 bigint null, i4 bigint null, i5 bigint null, i6 bigint null, i7 bigint null, i8 bigint null, i9 bigint null, t1 mediumtext null, t2 mediumtext null, t3 mediumtext null, t4 mediumtext null, t5 mediumtext null, t6 mediumtext null, t7 mediumtext null, t8 mediumtext null, t9 mediumtext null, lt1 longtext null, b1 longblob null, b2 longblob null, index (i1) ) engine=MEMORY DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_bin",
